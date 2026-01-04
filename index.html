@@ -16,10 +16,9 @@
             to { opacity: 1; transform: translateY(0); } 
         }
 
-        .nav-btn { background-color: #d8b4fe; color: white; transition: all 0.3s; }
+        .nav-btn { background-color: #d8b4fe; color: white; transition: all 0.3s; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); }
         .nav-btn:hover { background-color: #c084fc; transform: scale(1.05); }
-        .nav-btn:active { transform: scale(0.95); }
-
+        
         .card-container {
             background-color: white;
             width: 90%;
@@ -30,6 +29,10 @@
             text-align: center;
             border: 8px solid white;
         }
+
+        /* Carousel Styles */
+        .carousel-dot { width: 8px; height: 8px; border-radius: 50%; background: #e2e8f0; transition: all 0.3s; }
+        .carousel-dot.active { background: #d8b4fe; width: 20px; }
     </style>
 </head>
 <body class="flex items-center justify-center min-h-screen">
@@ -74,40 +77,78 @@
         </div>
 
         <div id="slide5" class="hidden fade-in">
-            <div class="bg-purple-50 p-6 rounded-3xl border-2 border-purple-100">
-                <h2 class="text-xl font-bold text-purple-600 mb-4">A Special Message</h2>
-                <p class="text-gray-600 text-sm leading-relaxed text-left mb-4">
-                    Every moment with you feels like a small piece of our forever. We've laughed, dreamed, and grown together and this is just the beginning. No matter where life takes us, I'll always hold these memories close.
-                </p>
-                <p class="text-pink-500 font-bold">You're my favorite part of every tomorrow. ❤️</p>
+            <h2 class="text-2xl font-bold text-[#00bcd4] mb-4">You & Me</h2>
+            <div class="relative w-full aspect-square rounded-3xl overflow-hidden mb-4 border-4 border-[#e0f7fa]">
+                <img id="carouselImg" src="https://i.pinimg.com/736x/8d/6d/46/8d6d467812903780516b718873327d4c.jpg" class="w-full h-full object-cover">
             </div>
-            <div class="flex gap-4 mt-8 justify-center">
+            <div class="flex justify-center gap-2 mb-8">
+                <div class="carousel-dot active"></div>
+                <div class="carousel-dot"></div>
+                <div class="carousel-dot"></div>
+                <div class="carousel-dot"></div>
+            </div>
+            <div class="flex gap-4 justify-center">
                 <button onclick="nextSlide(4)" class="bg-pink-50 text-pink-400 p-4 rounded-full">←</button>
                 <button onclick="nextSlide(6)" class="nav-btn px-10 py-3 rounded-full">→</button>
             </div>
         </div>
 
         <div id="slide6" class="hidden fade-in">
-            <img src="https://i.pinimg.com/originals/02/7e/61/027e61536f98797f14b6bc6a5670868c.gif" class="w-48 mx-auto mb-6 rounded-2xl">
-            <h2 class="text-3xl font-bold text-gray-800 mb-2">THANK YOU</h2>
+            <h2 class="text-2xl font-bold text-[#b794f4] mb-4">A Special Message</h2>
+            <div onclick="revealMessage()" id="messageBox" class="cursor-pointer bg-[#f3e5f5] p-8 rounded-[2rem] border-2 border-dashed border-[#d1c4e9] min-h-[200px] flex flex-col items-center justify-center transition-all">
+                <div id="messageCover">
+                    <img src="https://i.pinimg.com/originals/82/53/17/82531770e060c23933c09f3e0988009b.gif" class="w-24 mx-auto mb-2">
+                    <p class="text-[#7e57c2] font-bold text-xs uppercase tracking-widest">Tap Here</p>
+                </div>
+                <p id="actualMessage" class="hidden text-gray-600 text-sm leading-relaxed text-left">
+                    Every moment with you feels like a small piece of our forever. We've laughed, dreamed, and grown together and this is just the beginning. No matter where life takes us, I'll always hold these memories close. You're my favorite part of every tomorrow. ❤️
+                </p>
+            </div>
+            <div class="flex gap-4 mt-8 justify-center">
+                <button onclick="nextSlide(5)" class="bg-pink-50 text-pink-400 p-4 rounded-full">←</button>
+                <button onclick="nextSlide(7)" class="nav-btn px-10 py-3 rounded-full">→</button>
+            </div>
+        </div>
+
+        <div id="slide7" class="hidden fade-in">
+            <img src="https://i.pinimg.com/originals/02/7e/61/027e61536f98797f14b6bc6a5670868c.gif" class="w-48 mx-auto mb-6">
+            <h2 class="text-3xl font-bold text-gray-800 mb-2 uppercase">Thank You</h2>
             <h3 class="text-xl font-semibold text-pink-500 mb-4">For Everything</h3>
             <p class="text-gray-500 text-sm mb-8 px-2">Thank you for always being there when I needed someone. You make moments feel special just by being a part of them.</p>
-            <button onclick="location.reload()" class="bg-pink-500 hover:bg-pink-600 text-white w-full py-4 rounded-2xl font-bold text-lg shadow-lg">REPLAY 🔄</button>
+            <button onclick="location.reload()" class="bg-pink-500 hover:bg-pink-600 text-white w-full py-4 rounded-2xl font-bold text-lg">REPLAY 🔄</button>
         </div>
 
     </div>
 
     <script>
-        function nextSlide(n) {
-            // Hide all slides
-            document.querySelectorAll('#scrapbook > div').forEach(div => div.classList.add('hidden'));
-            
-            // Show target slide
-            const current = document.getElementById('slide' + n);
-            current.classList.remove('hidden');
+        const photos = [
+            "https://i.pinimg.com/736x/8d/6d/46/8d6d467812903780516b718873327d4c.jpg", // Couple looking at each other
+            "https://i.pinimg.com/736x/55/88/2c/55882c556b69426f8d3840b106208064.jpg", // Night sky view
+            "https://i.pinimg.com/736x/91/4a/0f/914a0f4435866708f32f41c60f21422b.jpg", // Couple standing
+            "https://i.pinimg.com/736x/8d/6d/46/8d6d467812903780516b718873327d4c.jpg"  // Hugging (Last)
+        ];
+        
+        let photoIndex = 0;
+        let photoInterval;
 
-            // Trigger confetti on the final slide
-            if(n === 6) {
+        function startCarousel() {
+            photoInterval = setInterval(() => {
+                photoIndex = (photoIndex + 1) % photos.length;
+                document.getElementById('carouselImg').src = photos[photoIndex];
+                const dots = document.querySelectorAll('.carousel-dot');
+                dots.forEach((dot, i) => {
+                    dot.classList.toggle('active', i === photoIndex);
+                });
+            }, 2500);
+        }
+
+        function nextSlide(n) {
+            clearInterval(photoInterval);
+            document.querySelectorAll('#scrapbook > div').forEach(div => div.classList.add('hidden'));
+            document.getElementById('slide' + n).classList.remove('hidden');
+
+            if(n === 5) startCarousel();
+            if(n === 7) {
                 confetti({
                     particleCount: 150,
                     spread: 70,
@@ -115,6 +156,14 @@
                     colors: ['#d8b4fe', '#fce7f3', '#ff69b4']
                 });
             }
+        }
+
+        function revealMessage() {
+            document.getElementById('messageCover').classList.add('hidden');
+            document.getElementById('actualMessage').classList.remove('hidden');
+            document.getElementById('messageBox').classList.add('bg-white');
+            document.getElementById('messageBox').classList.remove('cursor-pointer');
+            confetti({ particleCount: 30, spread: 50, origin: { y: 0.7 } });
         }
     </script>
 </body>
