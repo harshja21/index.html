@@ -9,27 +9,41 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap');
         body { font-family: 'Quicksand', sans-serif; background-color: #fce7f3; margin: 0; overflow: hidden; }
+        
         .fade-in { animation: fadeIn 0.4s ease-out forwards; }
         @keyframes fadeIn { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
-        .card-container { background-color: white; width: 92%; max-width: 380px; border-radius: 40px; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.2); padding: 2rem; text-align: center; border: 8px solid white; position: relative; }
+
+        .card-container {
+            background-color: white;
+            width: 92%;
+            max-width: 380px;
+            border-radius: 40px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.2);
+            padding: 2rem;
+            text-align: center;
+            border: 8px solid white;
+        }
+
         .nav-btn { background-color: #d8b4fe; color: white; transition: all 0.3s; }
         .nav-btn:hover { background-color: #c084fc; }
+        
         .dot { width: 8px; height: 8px; border-radius: 50%; background: #e2e8f0; transition: all 0.3s; }
         .dot.active { background: #d8b4fe; width: 24px; }
     </style>
 </head>
 <body class="flex items-center justify-center min-h-screen">
+
     <div id="scrapbook" class="card-container">
         
         <div id="slide1" class="fade-in">
-            <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHpueG56Znd6Z3huZnd6Z3huZnd6Z3huZnd6Z3huZnd6Z3huZnd6ZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Lp71UqhM42yoBNRqdM/giphy.gif" class="w-48 mx-auto mb-6">
+            <img src="https://i.postimg.cc/8z0N1mG4/peach-goma-bike.gif" class="w-48 mx-auto mb-6">
             <h1 class="text-2xl font-bold text-gray-800 mb-2">Our Future Together</h1>
             <p class="text-gray-500 text-sm mb-8">A little glimpse of the life we're creating together...</p>
             <button onclick="nextSlide(2)" class="nav-btn w-full py-4 rounded-2xl font-bold text-lg shadow-lg">START</button>
         </div>
 
         <div id="slide2" class="hidden fade-in">
-            <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExYmZpZnRwamM4ZThueGZ0Znd6Z3huZnd6Z3huZnd6Z3huZnd6Z3huZnd6ZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/kZatXO7D0G25uT77R2/giphy.gif" class="w-44 mx-auto mb-6">
+            <img src="https://i.postimg.cc/m2mD3qYf/peach-goma-phone.gif" class="w-44 mx-auto mb-6">
             <h2 class="text-2xl font-bold text-[#b794f4] mb-2">How It All Started</h2>
             <p class="text-gray-500 text-sm mb-12">It all began with a simple hello that changed everything. From random chats to endless laughter, our story found its start.</p>
             <div class="flex gap-4 justify-center">
@@ -39,7 +53,7 @@
         </div>
 
         <div id="slide3" class="hidden fade-in">
-            <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExYmZpZnRwamM4ZThueGZ0Znd6Z3huZnd6Z3huZnd6Z3huZnd6Z3huZnd6ZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/MDJ9IbZYpJXAk/giphy.gif" class="w-44 mx-auto mb-6">
+            <img src="https://i.postimg.cc/L5X8hRzP/peach-goma-hug.gif" class="w-44 mx-auto mb-6">
             <h2 class="text-2xl font-bold text-[#b794f4] mb-2">How It's Going</h2>
             <p class="text-gray-500 text-sm mb-12">We do fight sometimes, get angry, and stop talking. But no matter what, we find our way back. This bond means more than any fight ever could.</p>
             <div class="flex gap-4 justify-center">
@@ -49,7 +63,7 @@
         </div>
 
         <div id="slide4" class="hidden fade-in">
-            <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExYmZpZnRwamM4ZThueGZ0Znd6Z3huZnd6Z3huZnd6Z3huZnd6Z3huZnd6ZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/vVzH2XY3m0EJG/giphy.gif" class="w-44 mx-auto mb-6">
+            <img src="https://i.postimg.cc/Hkx7L8pX/peach-goma-love.gif" class="w-44 mx-auto mb-6">
             <h2 class="text-2xl font-bold text-[#b794f4] mb-2">I Promise You</h2>
             <p class="text-gray-500 text-sm mb-12">I'll always listen to your heart. I'll never stop caring, no matter what. I'll always choose you, every single day.</p>
             <div class="flex gap-4 justify-center">
@@ -61,10 +75,10 @@
         <div id="slide5" class="hidden fade-in">
             <h2 class="text-2xl font-bold text-[#00bcd4] mb-4">You & Me</h2>
             <div class="relative w-full aspect-square rounded-3xl overflow-hidden mb-6 border-4 border-[#e0f7fa]">
-                <img id="cImg" src="https://media.giphy.com/media/8mF996rB75r1e/giphy.gif" class="w-full h-full object-cover">
+                <img id="cImg" src="https://i.postimg.cc/fRRyXn9W/couple-1.jpg" class="w-full h-full object-cover">
             </div>
             <div class="flex justify-center gap-2 mb-8">
-                <div id="dot0" class="dot active"></div><div id="dot1" class="dot"></div><div id="dot2" class="dot"></div>
+                <div id="dot0" class="dot active"></div><div id="dot1" class="dot"></div><div id="dot2" class="dot"></div><div id="dot3" class="dot"></div>
             </div>
             <div class="flex gap-4 justify-center">
                 <button onclick="prevCarousel()" class="bg-pink-50 text-pink-300 p-4 rounded-full">←</button>
@@ -74,9 +88,9 @@
 
         <div id="slide6" class="hidden fade-in">
             <h2 class="text-2xl font-bold text-[#b794f4] mb-4">A Special Message</h2>
-            <div onclick="reveal()" id="msgBox" class="bg-[#f3e5f5] p-8 rounded-[2rem] border-2 border-dashed border-[#d1c4e9] min-h-[220px] flex items-center justify-center cursor-pointer transition-all">
-                <div id="cov"><img src="https://i.pinimg.com/originals/82/53/17/82531770e060c23933c09f3e0988009b.gif" class="w-20 mx-auto"><p class="text-[#7e57c2] font-bold text-[10px] mt-2 uppercase">Tap Here</p></div>
-                <p id="msg" class="hidden text-gray-600 text-sm text-left">Every moment with you feels like a small piece of our forever. We've laughed, dreamed, and grown together. No matter where life takes us, I'll always hold these memories close. You're my favorite part of every tomorrow. ❤️</p>
+            <div onclick="reveal()" id="msgBox" class="bg-[#f3e5f5] p-8 rounded-[2rem] border-2 border-dashed border-[#d1c4e9] min-h-[200px] flex items-center justify-center">
+                <div id="cover"><img src="https://i.postimg.cc/vHLv9Lkv/unicorn-tap.gif" class="w-24 mx-auto"><p class="text-[#7e57c2] font-bold text-xs mt-2 uppercase">Tap Here</p></div>
+                <p id="actualMsg" class="hidden text-gray-600 text-sm text-left">Every moment with you feels like a small piece of our forever. We've laughed, dreamed, and grown together and this is just the beginning. No matter where life takes us, I'll always hold these memories close. You're not just my present, you're my favorite part of every tomorrow. ❤️</p>
             </div>
             <div class="flex gap-4 mt-8 justify-center">
                 <button onclick="nextSlide(5)" class="bg-pink-50 text-pink-300 p-4 rounded-full">←</button>
@@ -85,41 +99,52 @@
         </div>
 
         <div id="slide7" class="hidden fade-in">
-            <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHpueG56Znd6Z3huZnd6Z3huZnd6Z3huZnd6Z3huZnd6ZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/MDJ9IbZYpJXAk/giphy.gif" class="w-40 mx-auto mb-6">
-            <h2 class="text-2xl font-bold text-gray-800 mb-2">THANK YOU</h2>
+            <img src="https://i.postimg.cc/Y9v4C0qj/peach-goma-end.gif" class="w-40 mx-auto mb-6">
+            <h2 class="text-2xl font-bold text-gray-800 mb-2 uppercase">Thank You</h2>
             <h3 class="text-lg font-semibold text-pink-500 mb-4">For Everything</h3>
             <p class="text-gray-500 text-sm mb-8 px-2">Thank you for being there. You make moments feel special.</p>
             <button onclick="location.reload()" class="bg-pink-500 text-white w-full py-4 rounded-2xl font-bold">REPLAY 🔄</button>
         </div>
+
     </div>
 
     <script>
+        // Exact animated images and couple photos from your video
         const photos = [
-            "https://media.giphy.com/media/8mF996rB75r1e/giphy.gif", // Stars
-            "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHpueG56Znd6Z3huZnd6Z3huZnd6Z3huZnd6Z3huZnd6ZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/vVzH2XY3m0EJG/giphy.gif", // Cat Hug
-            "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHpueG56Znd6Z3huZnd6Z3huZnd6Z3huZnd6Z3huZnd6ZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/MDJ9IbZYpJXAk/giphy.gif" // Cat Kiss
+            "https://i.postimg.cc/fRRyXn9W/couple-1.jpg", 
+            "https://i.postimg.cc/pTf0L9z9/couple-2.jpg", 
+            "https://i.postimg.cc/G2Y6B0Vf/couple-3.jpg", 
+            "https://i.postimg.cc/d0LhCgHn/couple-4.jpg"
         ];
         let cI = 0;
+
         function nextCarousel() {
-            if (cI < 2) { cI++; updateCarousel(); } else { nextSlide(6); }
+            if (cI < 3) { cI++; updateCarousel(); } 
+            else { nextSlide(6); }
         }
+
         function prevCarousel() {
-            if (cI > 0) { cI--; updateCarousel(); } else { nextSlide(4); }
+            if (cI > 0) { cI--; updateCarousel(); } 
+            else { nextSlide(4); }
         }
+
         function updateCarousel() {
             document.getElementById('cImg').src = photos[cI];
-            document.querySelectorAll('.dot').forEach((d, i) => d.classList.toggle('active', i === cI));
+            const dots = document.querySelectorAll('.dot');
+            dots.forEach((dot, i) => dot.classList.toggle('active', i === cI));
         }
+
         function nextSlide(n) {
             document.querySelectorAll('#scrapbook > div').forEach(d => d.classList.add('hidden'));
             document.getElementById('slide' + n).classList.remove('hidden');
             if(n === 7) confetti({ particleCount: 150, spread: 70, origin: { y: 0.6 } });
         }
+
         function reveal() {
-            document.getElementById('cov').classList.add('hidden');
-            document.getElementById('msg').classList.remove('hidden');
+            document.getElementById('cover').classList.add('hidden');
+            document.getElementById('actualMsg').classList.remove('hidden');
             document.getElementById('msgBox').classList.add('bg-white');
-            confetti({ particleCount: 40, spread: 50 });
+            confetti({ particleCount: 30, spread: 40, origin: { y: 0.7 } });
         }
     </script>
 </body>
