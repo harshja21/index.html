@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Future Together - Khushiiii</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap');
+        body { font-family: 'Quicksand', sans-serif; background-color: #fce7f3; margin: 0; overflow: hidden; }
+        
+        /* Smooth Fade Animation */
+        .fade-in { animation: fadeIn 0.5s ease-in forwards; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* Button Styling */
+        .nav-btn { background-color: #d8b4fe; color: white; padding: 12px 24px; border-radius: 999px; transition: all 0.3s; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        .nav-btn:hover { background-color: #c084fc; transform: scale(1.05); }
+        .nav-btn:active { transform: scale(0.95); }
+    </style>
+</head>
+<body class="flex items-center justify-center min-h-screen">
+
+    <div id="scrapbook" class="bg-white w-[90%] max-w-sm rounded-[40px] shadow-2xl overflow-hidden border-8 border-white relative min-h-[500px] flex flex-col items-center justify-center p-8 text-center">
+        
+        <div id="slide1" class="fade-in">
+            <img src="https://i.pinimg.com/originals/a4/0f/5d/a40f5d4715f1875150868f000787e979.gif" class="w-48 mx-auto mb-6">
+            <h1 class="text-2xl font-bold text-gray-800 mb-2">Our Future Together</h1>
+            <p class="text-gray-500 text-sm mb-8 px-4">A little glimpse of the life we're creating together...</p>
+            <button onclick="nextSlide(2)" class="nav-btn font-bold text-lg px-12">START</button>
+        </div>
+
+        <div id="slide2" class="hidden fade-in">
+            <img src="https://i.pinimg.com/originals/50/78/a1/5078a162539164bc140fcfba38ecf661.gif" class="w-48 mx-auto mb-6">
+            <h2 class="text-2xl font-bold text-purple-500 mb-2">How It All Started</h2>
+            <p class="text-gray-500 text-sm mb-8">It all began with a simple hello that changed everything. From random chats to endless laughter, our story found its start.</p>
+            <div class="flex gap-4">
+                <button onclick="nextSlide(1)" class="bg-pink-100 text-pink-400 p-3 rounded-full">←</button>
+                <button onclick="nextSlide(3)" class="nav-btn px-8">→</button>
+            </div>
+        </div>
+
+        <div id="slide3" class="hidden fade-in">
+            <img src="https://i.pinimg.com/originals/74/61/52/746152a23075c2e39c4a8d0092c687e3.gif" class="w-48 mx-auto mb-6">
+            <h2 class="text-2xl font-bold text-purple-500 mb-2">How It's Going</h2>
+            <p class="text-gray-500 text-sm mb-8">We do fight sometimes, get angry, and even stop talking for a while. But no matter what, we always find our way back to each other.</p>
+            <div class="flex gap-4">
+                <button onclick="nextSlide(2)" class="bg-pink-100 text-pink-400 p-3 rounded-full">←</button>
+                <button onclick="nextSlide(4)" class="nav-btn px-8">→</button>
+            </div>
+        </div>
+
+        <div id="slide4" class="hidden fade-in">
+            <img src="https://i.pinimg.com/originals/3a/0d/16/3a0d1655613328574e44f8016527b134.gif" class="w-48 mx-auto mb-6">
+            <h2 class="text-2xl font-bold text-purple-500 mb-2">I Promise You</h2>
+            <p class="text-gray-500 text-sm mb-8 italic">I'll always listen to your heart. I'll never stop caring, no matter what. I'll always choose you, every single day.</p>
+            <div class="flex gap-4">
+                <button onclick="nextSlide(3)" class="bg-pink-100 text-pink-400 p-3 rounded-full">←</button>
+                <button onclick="nextSlide(5)" class="nav-btn px-8">→</button>
+            </div>
+        </div>
+
+        <div id="slide5" class="hidden fade-in">
+            <div class="bg-purple-100 p-6 rounded-3xl border-2 border-purple-200">
+                <h2 class="text-xl font-bold text-purple-600 mb-4">A Special Message</h2>
+                <p class="text-gray-600 text-sm leading-relaxed text-left">
+                    Every moment with you feels like a small piece of our forever. We've laughed, dreamed, and grown together. No matter where life takes us, you're my favorite part of every tomorrow.
+                </p>
+                <p class="mt-4 font-bold text-pink-500">You are the bestest ❤️</p>
+            </div>
+            <div class="flex gap-4 mt-8">
+                <button onclick="nextSlide(4)" class="bg-pink-100 text-pink-400 p-3 rounded-full">←</button>
+                <button onclick="nextSlide(6)" class="nav-btn px-8">→</button>
+            </div>
+        </div>
+
+        <div id="slide6" class="hidden fade-in">
+            <img src="https://i.pinimg.com/originals/02/7e/61/027e61536f98797f14b6bc6a5670868c.gif" class="w-48 mx-auto mb-6">
+            <h2 class="text-2xl font-bold text-gray-800 mb-2">Thank You</h2>
+            <h3 class="text-lg font-semibold text-pink-500 mb-4">For Everything</h3>
+            <p class="text-gray-500 text-sm mb-8">Thank you for being there when I needed someone. You make every moment special just by being you.</p>
+            <button onclick="location.reload()" class="nav-btn bg-pink-500 px-10">REPLAY 🔄</button>
+        </div>
+
+    </div>
+
+    <script>
+        function nextSlide(n) {
+            document.querySelectorAll('#scrapbook > div').forEach(div => div.classList.add('hidden'));
+            const current = document.getElementById('slide' + n);
+            current.classList.remove('hidden');
+
+            if(n === 6) {
+                const duration = 3 * 1000;
+                const end = Date.now() + duration;
+
+                (function frame() {
+                    confetti({
+                        particleCount: 3,
+                        angle: 60,
+                        spread: 55,
+                        origin: { x: 0 },
+                        colors: ['#d8b4fe', '#fce7f3']
+                    });
+                    confetti({
+                        particleCount: 3,
+                        angle: 120,
+                        spread: 55,
+                        origin: { x: 1 },
+                        colors: ['#d8b4fe', '#fce7f3']
+                    });
+
+                    if (Date.now() < end) {
+                        requestAnimationFrame(frame);
+                    }
+                }());
+            }
+        }
+    </script>
+</body>
+</html>
